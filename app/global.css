@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light dark;
+  --background: #f4f3ef;
+  --surface: #ffffff;
+  --text: #1c1c1e;
+  --muted: #6b6b72;
+  --line: #e2e0da;
+  --accent: #2b55c9;
+  --on-accent: #ffffff;
+  --error: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #131315;
+    --surface: #1d1d21;
+    --text: #ececef;
+    --muted: #9b9ba3;
+    --line: #2f2f35;
+    --accent: #8aa4ff;
+    --on-accent: #0c0c0e;
+    --error: #ff8a80;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 34rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+h1 { font-size: 1rem; font-weight: 600; color: var(--muted); margin: 0 0 1rem; }
+h2 { font-size: 1rem; margin: 0 0 .5rem; }
+p { margin: 0 0 .5rem; }
+a { color: var(--accent); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; vertical-align: middle; padding: .5rem .5rem .5rem 0; border-bottom: 1px solid var(--line); }
+th { font-weight: 500; color: var(--muted); font-size: .875rem; }
+tr:last-child td { border-bottom: 0; }
+input {
+  width: 100%;
+  min-height: 44px;
+  font: inherit;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .5rem .75rem;
+}
+button {
+  font: inherit;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+button:disabled { opacity: .6; cursor: progress; }
+[hidden] { display: none !important; }
+
+/* Shared by every screen. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.error { color: var(--error); margin-top: .5rem; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+@media (max-width: 30rem) {
+  .actions button { flex: 1 1 auto; }
+}

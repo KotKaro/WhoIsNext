@@ -1,0 +1,22 @@
+.people { border: 0; padding: 0; margin: 0; min-width: 0; }
+.people legend { padding: 0; margin-bottom: .5rem; }
+.rows { list-style: none; margin: 0; padding: 0; }
+.row { display: flex; gap: .5rem; margin-bottom: .5rem; }
+.row button { flex: none; padding: 0; color: var(--muted); }
+.move { width: 36px; }
+.move[aria-disabled="true"] { opacity: .35; cursor: default; }
+.remove { width: 44px; }
+.grip {
+  flex: none;
+  width: 28px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.newPerson .grip, .newPerson button { visibility: hidden; }
+.dragging input { border-color: var(--accent); }
+.dragging .grip { color: var(--accent); cursor: grabbing; }
