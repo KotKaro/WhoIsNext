@@ -1,0 +1,15 @@
+name = "presenter"
+main = "src/worker.js"
+compatibility_date = "2025-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[vars]
+# Decides when a new week starts (Monday 00:00 here).
+TIME_ZONE = "Europe/Warsaw"
+
+[[kv_namespaces]]
+binding = "TEAMS"
+id = "b6d75cf5580041faad069fc11497bfd2"
