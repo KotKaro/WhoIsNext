@@ -20,6 +20,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm run lint
       - run: npm test
       # Bundles the Worker and reads wrangler.toml without deploying or logging in.
       - run: npx wrangler deploy --dry-run

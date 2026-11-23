@@ -1,0 +1,9 @@
+.presenter { font-size: 2.5rem; font-weight: 700; line-height: 1.15; margin: .25rem 0 .5rem; overflow-wrap: anywhere; }
+.number { text-align: right; font-variant-numeric: tabular-nums; }
+.week { padding-right: 1rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dates { white-space: nowrap; }
+.action { text-align: right; padding-right: 0; white-space: nowrap; }
+.name { overflow-wrap: anywhere; }
+.current .name, .current .week, .current .presented { font-weight: 600; }
+.presenting { color: var(--accent); font-weight: 600; }
+.link { display: flex; gap: .5rem; }

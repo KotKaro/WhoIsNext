@@ -1,0 +1,67 @@
+// Every sentence the page shows, so wording changes in one place.
+export const text = {
+  appName: 'Who is next',
+  loading: 'Loading…',
+  createNewTeam: 'Create a new team',
+  errors: {
+    offline: 'Could not reach the server. Check your connection and try again.',
+    unknown: 'Something went wrong. Try again.',
+  },
+  create: {
+    intro: 'Every week the next person in the queue presents at the meeting.',
+    legend: 'Your team, in order. The first one presents this week.',
+    submit: 'Create team link',
+  },
+  people: {
+    placeholder: 'Name',
+    person: (position: number) => `Person ${position}`,
+    unnamed: (position: number) => `person ${position}`,
+    drag: 'Drag to move',
+    moveUp: (who: string) => `Move ${who} up`,
+    moveDown: (who: string) => `Move ${who} down`,
+    remove: (who: string) => `Remove ${who}`,
+  },
+  presenter: {
+    documentTitle: (name: string) => `${name} presents · ${text.appName}`,
+    thisWeek: (weekLabel: string) => `This week · ${weekLabel}`,
+    insteadOf: (name: string) => `Instead of ${name}`,
+    next: (name: string, weekLabel: string) => `Next: ${name} · ${weekLabel}`,
+    againNextWeek: (name: string) => `Next week: ${name} again`,
+  },
+  queue: {
+    title: 'Queue',
+    name: 'Name',
+    times: 'Times',
+    turn: 'Turn',
+    timesHint: 'Times presented, this week included.',
+    thisWeek: 'This week',
+    presenting: '✓ Presenting',
+    myTurn: 'My turn now',
+    myTurnLabel: (name: string) => `${name}: my turn now`,
+    confirmTurn: (name: string, current: string, weekLabel: string) =>
+      `${name} presents this week. ${current} takes ${name}'s turn: ${weekLabel}.`,
+    edit: 'Edit people',
+    editLegend: 'People in the queue, in order. The first one presents this week. New people join at the end.',
+    save: 'Save',
+    cancel: 'Cancel',
+  },
+  history: {
+    title: 'History',
+    week: 'Week',
+    dates: 'Dates',
+    presenter: 'Presenter',
+    insteadOf: (name: string) => `instead of ${name}`,
+    showAll: (weeks: number) => `Show all ${weeks} weeks`,
+  },
+  share: {
+    hint: 'Team link. Anyone with it can see and edit the queue.',
+    created: 'Team created. Send this link to your team. Anyone with it can edit the queue.',
+    linkLabel: 'Team link',
+    copy: 'Copy',
+    copied: 'Copied',
+  },
+  weeks: {
+    label: (number: number, dates: string) => `Week ${number} · ${dates}`,
+    prefix: (number: number) => `Week ${number} · `,
+  },
+};

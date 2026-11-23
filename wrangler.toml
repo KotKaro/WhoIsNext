@@ -2,8 +2,13 @@ name = "presenter"
 main = "src/worker.js"
 compatibility_date = "2025-11-01"
 
+# Builds the page (app/) into dist/ before `wrangler dev` and `wrangler deploy`.
+[build]
+command = "npm run build"
+watch_dir = ["src", "app"]
+
 [assets]
-directory = "./public"
+directory = "./dist"
 binding = "ASSETS"
 
 [vars]
