@@ -23,6 +23,7 @@ One link per team, only names inside. Runs on Cloudflare Workers + KV, free tier
 ```bash
 npm install
 npm test           # Worker tests, then page tests
+npm run lint       # also keeps browser APIs (fetch, storage, clipboard, dialogs) in app/platform and app/api
 npm run typecheck
 npm run dev        # http://localhost:8787: builds the page, serves it with the Worker and a local KV store
 npm run dev:ui     # http://localhost:5173: the page with instant reload; keep `npm run dev` running for the API

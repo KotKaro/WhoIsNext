@@ -14,7 +14,6 @@ export function PeopleFields({ legend, people }: PeopleFieldsProps) {
     <fieldset className={styles.people}>
       <legend>{legend}</legend>
       <ol
-        ref={people.listRef}
         className={styles.rows}
         onPointerMove={people.onListPointerMove}
         onLostPointerCapture={people.onListLostPointerCapture}
@@ -38,7 +37,7 @@ export function PeopleFields({ legend, people }: PeopleFieldsProps) {
                 ⠿
               </span>
               <input
-                ref={people.inputRef(row.id)}
+                ref={(input) => people.registerInput(row.id, input)}
                 value={row.name}
                 maxLength={40}
                 autoComplete="off"

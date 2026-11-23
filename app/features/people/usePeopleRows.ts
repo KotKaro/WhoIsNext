@@ -15,7 +15,6 @@ import { dropIndex, linesOf, move, namesOf, paste, remove, rename, rowsFor } fro
 export function usePeopleRows(initialNames: string[], { focusFirst = false } = {}) {
   const [rows, setRows] = useState(() => rowsFor(initialNames));
   const [draggedId, setDraggedId] = useState<number>();
-  const listRef = useRef<HTMLOListElement>(null);
   const inputs = useRef(new Map<number, HTMLInputElement>());
   const pendingFocus = useRef<number | undefined>(focusFirst ? rows[0]?.id : undefined);
 
@@ -27,14 +26,12 @@ export function usePeopleRows(initialNames: string[], { focusFirst = false } = {
 
   const indexOf = (id: number) => rows.findIndex((row) => row.id === id);
 
-  function inputRef(id: number) {
-    return (input: HTMLInputElement | null) => {
-      if (input) {
-        inputs.current.set(id, input);
-      } else {
-        inputs.current.delete(id);
-      }
-    };
+  function registerInput(id: number, input: HTMLInputElement | null) {
+    if (input) {
+      inputs.current.set(id, input);
+    } else {
+      inputs.current.delete(id);
+    }
   }
 
   function onRemove(id: number) {
@@ -71,9 +68,10 @@ export function usePeopleRows(initialNames: string[], { focusFirst = false } = {
 
   // The list holds the pointer, not the grip: React moves rows around while dragging.
   function onGripPointerDown(event: PointerEvent<HTMLElement>, id: number) {
-    if (draggedId !== undefined || !event.isPrimary || event.button !== 0 || !listRef.current) return;
+    const list = event.currentTarget.closest('ol');
+    if (draggedId !== undefined || !event.isPrimary || event.button !== 0 || !list) return;
     event.preventDefault();
-    listRef.current.setPointerCapture(event.pointerId);
+    list.setPointerCapture(event.pointerId);
     setDraggedId(id);
   }
 
@@ -98,8 +96,7 @@ export function usePeopleRows(initialNames: string[], { focusFirst = false } = {
     rows,
     draggedId,
     names: () => namesOf(rows),
-    listRef,
-    inputRef,
+    registerInput,
     onRename: (id: number, name: string) => setRows(rename(rows, id, name)),
     onRemove,
     onMove,
